@@ -3,8 +3,8 @@ use $USER
 composer install
 echo composer install successful
 
-chown -R kuza:www-data *
-chmod -R 775 *
+chown -R kuza:www-data ../cabinzz-api/
+chmod -R 775 ../cabinzz-api/
 
 echo permissions successfully changed
 
