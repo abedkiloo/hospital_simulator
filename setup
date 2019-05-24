@@ -1,5 +1,5 @@
 use $USER
-
+cd /usr/share/nginx/cabinzz-api/
 composer install
 echo composer install successful
 
