@@ -1,4 +1,4 @@
-
+chmod +x /usr/share/nginx/cabinzz-api/setup
 composer install
 
 echo composer install successful
