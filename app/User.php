@@ -14,14 +14,13 @@ class User extends Authenticatable
     use SoftDeletes;
 
 
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'first_name',  'last_name','middle_name', 'phone_no', 'email','gender', 'password',
+        'first_name', 'last_name', 'middle_name', 'password',
     ];
 
     /**

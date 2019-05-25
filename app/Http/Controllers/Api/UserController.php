@@ -43,16 +43,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $response = array();
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'bail|required|max:50',
-            'middle_name' => 'bail|max:50',
-            'last_name' => 'bail|required|max:50',
-            'gender' => 'bail|required|max:50',
+            'name' => 'bail|required|max:50',
             'email' => 'bail|required|email|max:50|unique:users,email',
-            'phone_no' => 'bail|required|max:20|min:10|unique:users,phone_no',
-            'id_no' => 'bail|required|unique:users,id_no|min:7|max:10',
+            'phone_no' => 'bail|required|max:50|unique:users,phone_no',
+            'user_name' => 'bail|required',
             'password' => 'bail|required'
         ]);
 
@@ -64,17 +62,16 @@ class UserController extends Controller
             $phone_no = convert_phone_to_kenyan_format($request->phone_no);
 
             $user = new  User();
-            $user->id_no = $request->id_no;
-            $user->first_name = strtoupper($request->first_name);
-            $user->last_name = strtoupper($request->last_name);
-            $user->middle_name = strtoupper($request->middle_name);
+            $user->name = strtoupper($request->name);
+            $user->user_name = $request->user_name;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
             $user->phone_no = $phone_no;
+            $user->password = Hash::make($request->password);
             $user->save();
 
 
             if ($user) {
+
                 $response['success'] = 1;
                 $response['message'] = "successfully saved user";
             } else {

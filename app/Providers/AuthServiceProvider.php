@@ -25,7 +25,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
 //used for authentication
-        Passport::routes();
 
         $this->registerPolicies();
 
